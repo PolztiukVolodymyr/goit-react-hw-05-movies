@@ -12,7 +12,7 @@ export default function Movies() {
   const query = searchParams.get('query');
 
   useEffect(() => {
-    (async () => {
+    (() => {
         query && getSearchMovie(query).then(data => {
         setFilms(data.results)
         });
