@@ -15,11 +15,11 @@ export async function getPopularMovie() {
 };
 
 
-export async function getSearchMovie(name) {
+export async function getSearchMovie(query) {
   try {
-    const responce = await axios.get(`search/movie?api_key=${KEY}&query=${name}&language='en-US'`);
-    return responce.data;
-  } catch (error) {
+    const responce = await axios.get(`${BASE_URL}search/movie?api_key=${KEY}&query=${query}&language='en-US'`);
+      return responce.data;
+    } catch (error) {
       console.log(error.message);
   }
 };
@@ -27,7 +27,7 @@ export async function getSearchMovie(name) {
 
 export async function getMovieDetails(id) {
   try {
-    const responce = await axios.get(`movie/${id}?api_key=${KEY}&language='en-US'`);
+    const responce = await axios.get(`${BASE_URL}movie/${id}?api_key=${KEY}&language='en-US'`);
     return responce.data;
   } catch (error) {
       console.log(error.message);
@@ -37,7 +37,7 @@ export async function getMovieDetails(id) {
 
 export async function getMovieCast(id) {
   try {
-    const responce = await axios.get(`movie/${id}/credits?api_key=${KEY}&language='en-US'`);
+    const responce = await axios.get(`${BASE_URL}movie/${id}/credits?api_key=${KEY}&language='en-US'`);
     return responce.data;
   } catch (error) {
       console.log(error.message);
@@ -47,7 +47,7 @@ export async function getMovieCast(id) {
 
 export async function getMovieReviews(id) {
   try {
-    const responce = await axios.get(`movie/${id}/reviews?api_key=${KEY}&language='en-US'`);
+    const responce = await axios.get(`${BASE_URL}movie/${id}/reviews?api_key=${KEY}&language='en-US'`);
     return responce.data;
   } catch (error) {
       console.log(error.message);

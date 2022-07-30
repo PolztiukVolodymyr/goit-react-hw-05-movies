@@ -9,13 +9,15 @@ export default function Movies() {
     const [films, setFilms] = useState([]);
     const [searchParams, setSearchParams] = useSearchParams();
 
-  const name = searchParams.get('query');
+  const query = searchParams.get('query');
 
   useEffect(() => {
     (async () => {
-        name && getSearchMovie(name).then(data => setFilms(data.results));
-        })();
-  }, [name]);
+        query && getSearchMovie(query).then(data => {
+        setFilms(data.results)
+        });
+     })();
+  }, [query]);
 
   const onHandleChange = event => {
     setValue(event.target.value);
@@ -23,7 +25,7 @@ export default function Movies() {
 
   const onHandleSubmit = event => {
     event.preventDefault();
-    setSearchParams({ name: value });
+    setSearchParams({ query: value });
     setValue('');
   };
 

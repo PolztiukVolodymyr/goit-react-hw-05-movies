@@ -8,7 +8,9 @@ export default function Home() {
 
   useEffect(() => {
       (async () => {
-          getPopularMovie().then(films => setMovies(films));
+        getPopularMovie().then(films => {
+            setMovies(films)
+          });
       })();
     }, []);
 
