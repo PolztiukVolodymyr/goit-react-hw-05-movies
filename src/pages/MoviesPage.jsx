@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { getSearchMovie } from "../servises/Api";
-
+import {  toast } from 'react-toastify';
 import MoviesList from "components/MoviesList/MoviesList";
 
 export default function Movies() {
@@ -13,8 +13,14 @@ export default function Movies() {
 
   useEffect(() => {
     (() => {
-        query && getSearchMovie(query).then(data => {
+           
+      query && getSearchMovie(query).then(data => {
+        console.log(data.results)
+           if (data.results.length === 0) {
+           toast.warning(`Movie with this name not found!`);
+        };
         setFilms(data.results)
+      
         });
      })();
   }, [query]);
@@ -25,6 +31,10 @@ export default function Movies() {
 
   const onHandleSubmit = event => {
     event.preventDefault();
+       if (value.trim() === "") {
+          toast.error("Enter a search value, please!");
+          return;
+    };
     setSearchParams({ query: value });
     setValue('');
   };
@@ -42,3 +52,4 @@ export default function Movies() {
   );
 }
 
+   

@@ -7,7 +7,7 @@ export default function Home() {
   const [movies, setMovies] = useState();
 
   useEffect(() => {
-      (async () => {
+      (() => {
         getPopularMovie().then(films => {
             setMovies(films)
           });
