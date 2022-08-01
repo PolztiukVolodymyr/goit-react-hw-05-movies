@@ -12,6 +12,14 @@ const Cast = lazy(() => import('../Cast/Cast'));
 const Navigation = lazy(() => import('../Navigation/Navigation'));
 const Reviews = lazy(() => import('../Reviews/Reviews'));
 
+// import Home from "../../pages/HomePage";
+// import MovieDetailsPage from "../../pages/MovieDetailsPage";
+// import Movies from "../../pages/MoviesPage";
+
+// import Cast from "../../components/Cast/Cast";
+// import Navigation from "../../components/Navigation/Navigation";
+// import Reviews from "../../components/Reviews/Reviews";
+
 
 
 
