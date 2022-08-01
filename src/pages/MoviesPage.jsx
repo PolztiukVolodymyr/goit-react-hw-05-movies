@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
+import {BiSearchAlt} from 'react-icons/bi';
 import { getSearchMovie } from "../servises/Api";
+import css from "./MoviesPage.module.css";
 import {  toast } from 'react-toastify';
 import MoviesList from "components/MoviesList/MoviesList";
 
@@ -42,10 +44,19 @@ export default function Movies() {
   return (
     <div>
       <main>
-        <form onSubmit={onHandleSubmit}>
-          <input type="text" onChange={onHandleChange} value={value} />
-          <button type="submit">Search</button>
-        </form>
+        <div className={css.Searchbar}>
+          <form onSubmit={onHandleSubmit} className={css.SearchForm} >
+            <input type="text"
+              className={css.SearchFormInput}
+              placeholder="Search movies"
+              value={value}
+              onChange={onHandleChange} />
+          
+            <button type="submit" className={css.SearchFormButton}>
+              <BiSearchAlt size={32} />
+            </button>
+          </form>
+        </div>
         {films && <MoviesList films={films} />}
       </main>
     </div>

@@ -1,25 +1,30 @@
 .HeaderNav {
     display: flex;
     width: 100%;
-   
-    padding: 30px;
-    background-color: #8eb0ba;
+    padding: 20px;
+    background-color: #172f78;
 }
 
-.navLink {
+a{
+    color: #eff5ed;
+}
+
+.HeaderNav a {
     text-decoration: none;
     font-size: 24px;
     font-weight: 700;
     margin-left: 25px;
-    color: black;
-   
+    
 }
 
-.navLink.active {
-    color: blue;
-   
+.active {
+    color: #3fdb18;
 }
 
-.navLink:hover:not(.active) {
-    color:blueviolet;
+.inactive {
+    color: #eff5ed;
+}
+
+a:hover {
+    color:#edd91f;
 }
