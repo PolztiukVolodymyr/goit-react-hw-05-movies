@@ -85,10 +85,5 @@ export default function MovieDetailsPage() {
     );
 };
 
-            <NavLink to="reviews"
-                className={({ isActive }) =>
-                    isActive
-                        ? `${css.active}`
-                        : `${css.inactive}`} > Reviews
-            </NavLink>          
+        
 

@@ -17,7 +17,6 @@ export default function Movies() {
     (() => {
            
       query && getSearchMovie(query).then(data => {
-        console.log(data.results)
            if (data.results.length === 0) {
            toast.warning(`Movie with this name not found!`);
         };

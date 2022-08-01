@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
+import PropTypes from 'prop-types';
 // import { useOutletContext } from 'react-router-dom';
 import { getMovieCast } from "../../servises/Api";
 
@@ -31,4 +32,15 @@ export default function Cast() {
       </ul>
    );
 
-}
+};
+
+
+Cast.propTypes = {
+   cast: PropTypes.arrayOf(
+      PropTypes.shape({
+         id: PropTypes.number.isRequired,
+         profile_path: PropTypes.string,
+         name: PropTypes.string,
+      })
+   ),
+};
