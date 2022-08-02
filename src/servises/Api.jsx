@@ -8,6 +8,7 @@ const BASE_URL = 'https://api.themoviedb.org/3/';
 export async function getPopularMovie() {
   try {
     const responce = await axios.get(`${BASE_URL}trending/movie/week?api_key=${KEY}&language='en-US'`);
+    console.log(responce.data.results);
     return responce.data.results;
   } catch (error) {
       console.log(error.message);

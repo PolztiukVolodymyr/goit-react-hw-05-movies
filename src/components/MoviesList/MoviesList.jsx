@@ -16,6 +16,7 @@ export default function MoviesList ({ films }) {
                 // height="100"
                 className={css.FilmImage}
                 src={`https://image.tmdb.org/t/p/w500${film.poster_path}`}
+              // src={`https://image.tmdb.org/t/p/w500${film.poster_path}`}
                 alt={film.title}
             />
           </Link>
