@@ -11,6 +11,7 @@ const Movies = lazy(() => import('../../pages/MoviesPage'));
 const Cast = lazy(() => import('../Cast/Cast'));
 const Navigation = lazy(() => import('../Navigation/Navigation'));
 const Reviews = lazy(() => import('../Reviews/Reviews'));
+const Loader = lazy(() => import('../Loader/Loader'));
 
 // import Home from "../../pages/HomePage";
 // import MovieDetailsPage from "../../pages/MovieDetailsPage";
@@ -20,14 +21,11 @@ const Reviews = lazy(() => import('../Reviews/Reviews'));
 // import Navigation from "../../components/Navigation/Navigation";
 // import Reviews from "../../components/Reviews/Reviews";
 
-
-
-
 export const App = () => {
   return (
     <div>
       <Navigation />
-      <Suspense fallback={<div>Loading ...</div>}>
+      <Suspense fallback={<Loader/>}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="movies" element={<Movies />} />
