@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 // import { useOutletContext } from 'react-router-dom';
 import { getMovieCast } from "../../servises/Api";
+import css from "./Cast.module.css";
+import  default_img  from "../../images/default_img.jpg";
 
 export default function Cast() {
     const [cast, setCast] = useState();
@@ -16,13 +18,14 @@ export default function Cast() {
     }, [movieId]);
 
       return (
-      <ul >
+      <ul className={css.CastList}>
          {cast &&
             cast.map(({ id, profile_path, name}) => (
                <li key={id}>
                   <img
-                    
-                     src={`https://image.tmdb.org/t/p/w500${profile_path}`}
+                     src={profile_path
+                        ? `https://image.tmdb.org/t/p/w500${profile_path}`
+                        : default_img}
                      alt={name}
                      width="100"
                   />
